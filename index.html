@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Saurabh Tiwari | Global Infrastructure Strategist</title>
+<title>Saurabh Tiwari | Global Infrastructure Strategy</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
   
   :root {
-    --bg: #050505;
-    --card-bg: #0f0f0f;
-    --accent: #d4af37; /* Burnished Gold */
+    --bg: #0a0a0a;
+    --surface: #121212;
+    --border: #262626;
+    --accent: #ffffff;
+    --text-dim: #909090;
     --text-main: #ffffff;
-    --text-dim: #a0a0a0;
-    --border: #222;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,93 +22,67 @@
     background-color: var(--bg); 
     color: var(--text-main); 
     line-height: 1.6;
-    overflow-x: hidden;
+    letter-spacing: -0.01em;
   }
 
   /* NAVIGATION */
   nav { 
     position: fixed; top: 0; width: 100%; z-index: 1000; 
-    background: rgba(5, 5, 5, 0.8); 
-    backdrop-filter: blur(20px); 
-    padding: 1.5rem 8%; 
+    background: rgba(10, 10, 10, 0.8); 
+    backdrop-filter: blur(12px); 
+    padding: 1.5rem 6%; 
     display: flex; justify-content: space-between; align-items: center; 
     border-bottom: 1px solid var(--border); 
   }
-  .nav-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
-  .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-left: 2.5rem; transition: 0.3s; }
-  .nav-links a:hover { color: var(--text-main); }
+  .nav-logo { font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.2em; }
+  .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-left: 2rem; transition: 0.3s; }
+  .nav-links a:hover { color: var(--accent); }
 
   /* HERO */
   #hero { 
-    min-height: 100vh; display: flex; align-items: center; padding: 0 8%; 
-    background: radial-gradient(circle at top right, #111, #050505);
+    min-height: 85vh; display: flex; align-items: center; padding: 0 8%; 
+    border-bottom: 1px solid var(--border);
   }
-  .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; width: 100%; }
+  .hero-container { width: 100%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 4rem; align-items: center; }
   
-  .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 2rem; font-style: italic; }
-  .hero-content h1 span { color: var(--accent); font-style: normal; }
-  .hero-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-bottom: 1rem; display: block; font-weight: 700; }
-  .hero-desc { font-size: 1.25rem; color: var(--text-dim); max-width: 600px; margin-bottom: 3rem; font-weight: 300; }
+  .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.95; margin-bottom: 1.5rem; }
+  .hero-content h1 span { font-style: italic; font-weight: 400; opacity: 0.7; }
+  .hero-desc { font-size: 1.25rem; color: var(--text-dim); max-width: 600px; font-weight: 300; }
 
-  /* PHOTO */
-  .profile-wrap { position: relative; width: 100%; max-width: 450px; justify-self: center; }
-  .profile-img { 
-    width: 100%; aspect-ratio: 4/5; object-fit: cover; 
-    filter: grayscale(20%) contrast(110%);
-    border: 1px solid var(--border);
-    transition: 0.5s ease;
-  }
-  .profile-wrap::after { 
-    content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; 
-    border: 1px solid var(--accent); z-index: -1; 
-  }
+  .profile-frame { width: 100%; aspect-ratio: 1/1; background: var(--surface); border: 1px solid var(--border); position: relative; overflow: hidden; }
+  .profile-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+  .profile-frame:hover img { filter: grayscale(0%); }
 
-  /* IMPACT SECTION (BENTO BOX) */
-  .impact { padding: 10rem 8%; }
-  .section-label { color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; font-weight: 700; margin-bottom: 3rem; display: block; text-align: center; }
+  /* BENTO METRICS */
+  .metrics { padding: 6rem 8%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+  .metric-item { background: var(--bg); padding: 3rem 2rem; text-align: center; }
+  .metric-item h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .metric-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); }
+
+  /* STRATEGIC IMPACT */
+  .section { padding: 8rem 8%; max-width: 1200px; margin: 0 auto; }
+  .label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em; color: var(--text-dim); margin-bottom: 2rem; display: block; }
   
-  .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .bento-card { background: var(--card-bg); border: 1px solid var(--border); padding: 3rem; border-radius: 2px; transition: 0.4s; }
-  .bento-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-  .bento-card.wide { grid-column: span 2; }
-  .bento-card h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
-  .bento-card h4 { font-size: 1rem; margin-bottom: 1rem; letter-spacing: 1px; }
-  .bento-card p { color: var(--text-dim); font-size: 0.9rem; }
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .impact-item h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; }
+  .impact-item p { color: var(--text-dim); margin-bottom: 2rem; font-weight: 300; }
 
-  /* THE THESIS */
-  .thesis { padding: 8rem 8%; background: #0a0a0a; border-top: 1px solid var(--border); }
-  .thesis-content { max-width: 900px; margin: 0 auto; text-align: center; }
-  .thesis h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
-  .thesis p { font-size: 1.5rem; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
+  /* CAREER CHRONICLE */
+  .career-row { display: grid; grid-template-columns: 250px 1fr; padding: 3rem 0; border-top: 1px solid var(--border); }
+  .career-meta { font-size: 0.75rem; color: var(--text-dim); font-weight: 600; text-transform: uppercase; }
+  .career-body h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .career-body h4 { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1rem; font-weight: 400; }
+  .career-body ul { list-style: none; }
+  .career-body li { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0.5rem; font-weight: 300; position: relative; padding-left: 1.5rem; }
+  .career-body li::before { content: "—"; position: absolute; left: 0; color: var(--border); }
 
-  /* EXPERIENCE (MINIMALIST) */
-  .exp-section { padding: 8rem 8%; }
-  .exp-row { 
-    display: grid; grid-template-columns: 300px 1fr; 
-    padding: 3rem 0; border-bottom: 1px solid var(--border);
-  }
-  .exp-time { color: var(--accent); font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; }
-  .exp-body h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
-  .exp-body h4 { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 1.5rem; }
-  .exp-body p { max-width: 700px; color: var(--text-dim); }
+  /* FOOTER */
+  footer { padding: 4rem 8%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .contact-btn { padding: 1rem 2rem; background: var(--accent); color: var(--bg); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
-  /* CTA */
-  .cta { padding: 10rem 8%; text-align: center; }
-  .btn-accent { 
-    display: inline-block; padding: 1.2rem 3.5rem; 
-    border: 1px solid var(--accent); color: var(--accent); 
-    text-decoration: none; font-weight: 700; text-transform: uppercase; 
-    letter-spacing: 3px; font-size: 0.8rem; transition: 0.4s;
-  }
-  .btn-accent:hover { background: var(--accent); color: var(--bg); }
-
-  footer { padding: 4rem 8%; border-top: 1px solid var(--border); color: #444; font-size: 0.7rem; text-align: center; letter-spacing: 2px; text-transform: uppercase; }
-
-  @media (max-width: 1000px) {
-    .hero-grid, .impact-grid, .exp-row { grid-template-columns: 1fr; }
-    .bento-card.wide { grid-column: span 1; }
+  @media (max-width: 900px) {
+    .hero-container, .impact-grid, .career-row, .metrics { grid-template-columns: 1fr; }
     .hero-content h1 { font-size: 3.5rem; }
-    nav .nav-links { display: none; }
   }
 </style>
 </head>
@@ -117,99 +91,102 @@
 <nav>
   <div class="nav-logo">Saurabh Tiwari</div>
   <ul class="nav-links">
-    <li><a href="#thesis">Thesis</a></li>
     <li><a href="#impact">Impact</a></li>
-    <li><a href="#experience">History</a></li>
-    <li><a href="mailto:tiwsau@gmail.com">Contact</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="mailto:tiwsau@gmail.com">Connect</a></li>
   </ul>
 </nav>
 
 <section id="hero">
-  <div class="hero-grid">
+  <div class="hero-container">
     <div class="hero-content">
-      <span class="hero-tag">Global Infrastructure Strategist</span>
-      <h1>Solving for <span>Uptime</span> at Global Scale.</h1>
-      <p class="hero-desc">Scaling the physical world to meet digital demand. Currently steering global governance and capital strategy for Visa's infrastructure portfolio.</p>
-      <a href="#experience" class="btn-accent">Explore Impact</a>
+      <h1>Global <span>Infrastructure</span> Strategy.</h1>
+      <p class="hero-desc">Directing the physical foundation of global commerce. 15+ years of hyperscale leadership across North America, EMEA, and APAC.</p>
     </div>
-    <div class="profile-wrap">
-      <img src="profile.jpeg" class="profile-img" alt="Saurabh Tiwari">
+    <div class="profile-frame">
+      <img src="profile.jpeg" alt="Saurabh Tiwari">
     </div>
   </div>
 </section>
 
-<section class="thesis" id="thesis">
-  <div class="thesis-content">
-    <span class="section-label">Leadership Thesis</span>
-    <h2>"Resilience is not a state, it is a discipline."</h2>
-    <p>In a world of sub-second transactions, infrastructure is the silent foundation of global commerce. I specialize in bridging high-level capital strategy with deep-floor engineering to build audit-proof, hyperscale environments that never sleep.</p>
+<section class="metrics">
+  <div class="metric-item">
+    <h2>100%</h2>
+    <p>Availability Standard </p>
+  </div>
+  <div class="metric-item">
+    <h2>$XXXM</h2>
+    <p>Portfolio Strategy [cite: 12, 14, 25]</p>
+  </div>
+  <div class="metric-item">
+    <h2>6+</h2>
+    <p>Global Markets </p>
+  </div>
+  <div class="metric-item">
+    <h2>15yr</h2>
+    <p>Operational Mastery </p>
   </div>
 </section>
 
-<section class="impact" id="impact">
-  <span class="section-label">Executive Metrics</span>
+<section class="section" id="impact">
+  <span class="label">Strategic Impact</span>
   <div class="impact-grid">
-    <div class="bento-card">
-      <h3>99.999%</h3>
-      <h4>Global Reliability</h4>
-      <p>A relentless standard of uptime maintained across Tier III+ facilities spanning 6+ mission-critical global markets.</p>
+    <div class="impact-item">
+      <h3>Governance at Scale</h3>
+      <p>Architected the global operating framework for Visa’s data center footprint, standardizing operational readiness across emerging and established regions[cite: 8, 22].</p>
     </div>
-    <div class="bento-card wide">
-      <h3>6 Continents</h3>
-      <h4>Governance & Scale</h4>
-      <p>Architecting the operational frameworks and audit-ready standards that allow Visa's infrastructure to scale safely into high-growth markets including India, Turkey, and Japan.</p>
-    </div>
-    <div class="bento-card">
-      <h3>15+ Years</h3>
-      <h4>Industry Mastery</h4>
-      <p>From hands-on systems engineering to Director-level capital planning and DCEO operations leadership.</p>
-    </div>
-    <div class="bento-card wide">
-      <h3>High Honors MBA</h3>
-      <h4>Business Fluency</h4>
-      <p>Translating complex technical risk into executive-level financial strategy. Bridging the gap between the server room and the boardroom.</p>
+    <div class="impact-item">
+      <h3>Capital Investment</h3>
+      <p>Partnering with senior leadership to guide long-term infrastructure roadmaps through demand modeling and scenario analysis[cite: 9, 25].</p>
     </div>
   </div>
 </section>
 
-<section class="exp-section" id="experience">
-  <span class="section-label">Career Trajectory</span>
+<section class="section" id="history">
+  <span class="label">Professional Chronicle</span>
   
-  <div class="exp-row">
-    <div class="exp-time">2022 — PRESENT</div>
-    <div class="exp-body">
-      <h3>Director, Global Lead of Business Planning</h3>
-      <h4>Visa Inc. | DCEO Business Operations</h4>
-      <p>steering the global capital investment roadmap. Orchestrating the governance of multi-million dollar infrastructure expansions while ensuring absolute regulatory and audit compliance.</p>
+  <div class="career-row">
+    <div class="career-meta">2022 — Present [cite: 20]</div>
+    <div class="career-body">
+      <h3>Director, Lead Business Planning [cite: 17]</h3>
+      <h4>Visa Inc. | Denver, CO [cite: 18, 20]</h4>
+      <ul>
+        <li>Expanding global data center footprints through coordinated capacity modeling and investment strategy[cite: 21].</li>
+        <li>Overseeing the full lifecycle of infrastructure programs, from site selection to operational readiness[cite: 23].</li>
+        <li>Directing the global DCIM program to drive capacity insights and portfolio-wide monitoring[cite: 26].</li>
+      </ul>
     </div>
   </div>
 
-  <div class="exp-row">
-    <div class="exp-time">2021 — 2022</div>
-    <div class="exp-body">
-      <h3>Director, Data Center Delivery & Ops</h3>
-      <h4>Visa Inc. | India & Turkey</h4>
-      <p>Operationalizing hyperscale growth in high-velocity markets. Led cross-functional teams of 21+ engineers to maintain zero SLA violations during peak regional expansion.</p>
+  <div class="career-row">
+    <div class="career-meta">2021 — 2022 [cite: 30]</div>
+    <div class="career-body">
+      <h3>Director, India & Turkey [cite: 28]</h3>
+      <h4>Visa Inc. | Data Center Delivery & Ops [cite: 28, 29]</h4>
+      <ul>
+        <li>Led Tier III+ hyperscale environments supporting APAC and EMEA workloads with 100% SLA[cite: 31, 32].</li>
+        <li>Managed four production facilities, achieving zero service interruptions during commissioning and steady-state transition[cite: 32, 33].</li>
+        <li>Engineered high-performing teams of 21 engineers focused on accountability and psychological safety[cite: 35].</li>
+      </ul>
     </div>
   </div>
 
-  <div class="exp-row">
-    <div class="exp-time">PREVIOUS</div>
-    <div class="exp-body">
-      <h3>The Foundation of Excellence</h3>
-      <h4>Visa Inc. | US & Singapore</h4>
-      <p>A decade-long ascent through Staff Systems Engineering and Business Process Engineering, defining the global standards that now govern Visa's data center footprint.</p>
+  <div class="career-row">
+    <div class="career-meta">2018 — 2021 [cite: 37]</div>
+    <div class="career-body">
+      <h3>Data Center Manager [cite: 36]</h3>
+      <h4>Visa Inc. | Singapore & Indonesia [cite: 36, 37]</h4>
+      <ul>
+        <li>Maintained zero SLA violations across mission-critical facilities with 2MW+ load[cite: 38].</li>
+        <li>Delivered $750K in annual OpEx savings via strategic site decommissioning during the COVID-19 pandemic[cite: 41].</li>
+      </ul>
     </div>
   </div>
-</section>
-
-<section class="cta">
-  <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 3rem;">Let’s talk infrastructure at scale.</h2>
-  <a href="mailto:tiwsau@gmail.com" class="btn-accent">Initiate Connection</a>
 </section>
 
 <footer>
-  © 2026 Saurabh Tiwari · Denver, Colorado · Strategic Infrastructure Leadership
+  <div class="nav-logo">ST / 2026</div>
+  <a href="mailto:tiwsau@gmail.com" class="contact-btn">Initiate Connection</a>
 </footer>
 
 </body>
