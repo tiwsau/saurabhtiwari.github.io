@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saurabh Tiwari | Infrastructure Executive</title>
+  <title>Saurabh Tiwari | Global Infrastructure Executive</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -51,8 +51,12 @@
     /* TWO-COLUMN ABOUT SECTION */
     .about-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 6rem; align-items: start; }
     .about-main h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 2.5rem; border-left: 4px solid var(--gold); padding-left: 2rem; }
-    .about-main p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 1.5rem; font-weight: 300; }
-    .about-main strong { color: var(--text-main); font-weight: 500; }
+    
+    .about-content-wrapper { display: flex; gap: 3rem; align-items: start; }
+    .about-text p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 1.5rem; font-weight: 300; }
+    .about-text strong { color: var(--text-main); font-weight: 500; }
+    
+    .profile-pic { width: 240px; flex-shrink: 0; filter: grayscale(100%); border: 1px solid var(--border); }
 
     /* PILLS STYLE */
     .pill-container { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 3.5rem; }
@@ -66,7 +70,7 @@
       font-weight: 500; 
     }
 
-    /* EDUCATION SIDEBAR */
+    /* EDUCATION & CERT SIDEBAR */
     .edu-sidebar h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-main); }
     .edu-item { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin-bottom: 2.5rem; }
     .edu-item h4 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--text-main); font-weight: 600; }
@@ -79,6 +83,20 @@
     .career-body h4 { font-size: 0.95rem; color: var(--text-main); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
     .career-body p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 1.5rem; max-width: 850px; font-weight: 300; }
 
+    /* EARLIER CAREER TILES */
+    .earlier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 2rem; }
+    .earlier-item { border-left: 1px solid var(--gold); padding-left: 1.5rem; }
+    .earlier-item h5 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-main); }
+    .earlier-item span { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem; font-weight: 600; }
+    .earlier-item p { font-size: 0.95rem; color: var(--text-dim); font-weight: 300; line-height: 1.6; }
+
+    /* CERTIFICATIONS EXPERTISE GRID */
+    .cert-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 2rem; }
+    .cert-group h4 { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .cert-list { list-style: none; }
+    .cert-list li { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem; }
+    .cert-list li i { color: var(--gold); font-size: 0.8rem; margin-top: 0.3rem; }
+
     /* FOOTER */
     footer { padding: 8rem 6%; background: var(--surface); border-top: 1px solid var(--border); text-align: center; }
     .contact-grid { display: flex; justify-content: center; gap: 4rem; margin: 3.5rem 0; }
@@ -88,8 +106,8 @@
     .footer-location { color: var(--text-dim); letter-spacing: 0.15em; font-size: 0.75rem; opacity: 0.5; margin-top: 4rem; }
 
     @media (max-width: 1000px) {
-      .about-container, .career-row { grid-template-columns: 1fr; gap: 4rem; }
-      .about-main h1 { font-size: 3rem; }
+      .about-container, .career-row, .about-content-wrapper { grid-template-columns: 1fr; flex-direction: column-reverse; }
+      .profile-pic { width: 100%; max-width: 350px; margin-bottom: 2rem; }
     }
   </style>
 </head>
@@ -100,6 +118,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#credentials">Credentials</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -110,11 +129,14 @@
       <span class="label">Executive Summary</span>
       <h1>Strategy Meets Execution</h1>
       
-      <p>I am a results-driven IT and data center leader with over 15 years of global experience spanning North America, APAC, and EMEA. My work sits at the intersection of infrastructure strategy, governance, and operations—translating complex technical environments into scalable, audit-ready, and business-aligned systems.</p>
-
-      <p>At Visa, I’ve led everything from hyperscale expansion programs across four continents to building operational frameworks used by teams worldwide. I take pride in maintaining <strong>100% uptime</strong>, building psychologically safe teams, and making infrastructure investments that align with long-term business goals.</p>
-
-      <p>I believe great leadership means being equally fluent in a boardroom and a data center floor—and I've spent my career proving it.</p>
+      <div class="about-content-wrapper">
+        <div class="about-text">
+          <p>I am a results-driven IT and data center leader with over 15 years of global experience spanning North America, APAC, and EMEA. My work sits at the intersection of infrastructure strategy, governance, and operations—translating complex technical environments into scalable, audit-ready, and business-aligned systems.</p>
+          <p>At Visa, I’ve led everything from hyperscale expansion programs across four continents to building operational frameworks used by teams worldwide. I take pride in maintaining <strong>100% uptime</strong>, building psychologically safe teams, and making infrastructure investments that align with long-term business goals.</p>
+          <p>I believe great leadership means being equally fluent in a boardroom and a data center floor—and I've spent my career proving it.</p>
+        </div>
+        <img src="profile.jpeg" alt="Saurabh Tiwari" class="profile-pic">
+      </div>
 
       <div class="pill-container">
         <div class="skill-pill">IT Strategy & Governance</div>
@@ -123,10 +145,8 @@
         <div class="skill-pill">Program Management</div>
         <div class="skill-pill">Vendor Negotiations</div>
         <div class="skill-pill">Business Analytics</div>
-        <div class="skill-pill">Executive Reporting</div>
         <div class="skill-pill">Capacity Planning</div>
         <div class="skill-pill">Risk & Resiliency</div>
-        <div class="skill-pill">Cross-Functional Leadership</div>
       </div>
     </div>
 
@@ -179,7 +199,7 @@
     <div class="career-body">
       <h3>Visa Inc.</h3>
       <h4>Director, India & Turkey – Data Center Delivery & Operations</h4>
-      <p>Directed Tier III+ data center operations across India and Turkey. Led multi-site delivery and operations with 100% SLA and uptime performance while scaling cross-regional engineering capability.</p>
+      <p>Directed Tier III+ data center operations across India and Turkey. Led multi-site delivery and operations with 100% SLA performance while scaling cross-regional engineering capability.</p>
     </div>
   </div>
 
@@ -188,35 +208,73 @@
     <div class="career-body">
       <h3>Visa Inc.</h3>
       <h4>Data Center Manager – Singapore & Indonesia</h4>
-      <p>Managed mission-critical operations across regional facilities while delivering new colocation capacity and optimizing portfolio efficiency. Achieved significant savings through footprint rationalization during expansion phases.</p>
+      <p>Managed mission-critical operations across regional facilities while delivering new colocation capacity and optimizing portfolio efficiency.</p>
     </div>
   </div>
 
-  <div class="career-row">
-    <div class="career-year">2016 — 2018</div>
-    <div class="career-body">
-      <h3>Visa Inc.</h3>
-      <h4>Staff Systems Engineer – Operations & Infrastructure</h4>
-      <p>Standardized operating maturity across global data center environments. Achieved 100% Uptime Institute M&O certification scores—a distinction held by fewer than 5% of centers worldwide.</p>
+  <div style="margin-top: 6rem;">
+    <span class="label">Earlier Foundations</span>
+    <div class="earlier-grid">
+      <div class="earlier-item">
+        <h5>Assistant NOC Manager</h5>
+        <span>BYU Office of IT | 2009 – 2012</span>
+        <p>Led 24/7 support for 5,000+ servers; trained 50+ staff and resolved major incidents using ITIL framework.</p>
+      </div>
+      <div class="earlier-item">
+        <h5>Optimization Engineer</h5>
+        <span>Longview Fibre | 2012 – 2013</span>
+        <p>Delivered $500K annual savings (18%) via ink optimization and cut energy costs by 66% through innovative engineering.</p>
+      </div>
+      <div class="earlier-item">
+        <h5>Research & Teaching Assistant</h5>
+        <span>SIU Edwardsville | 2013 – 2015</span>
+        <p>Built intelligent decision support systems using VBA for production planning and demand forecasting.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="career-row">
-    <div class="career-year">2015 — 2016</div>
-    <div class="career-body">
-      <h3>Visa Inc.</h3>
-      <h4>Business Process Engineer – US Data Centers</h4>
-      <p>Drove 15% operational efficiency gains through automated KPI and incident analytics using Tableau and Splunk. Led enterprise-wide audit of 5,000+ assets to increase data accuracy to 90%+.</p>
+<section class="section" id="credentials" style="padding-top: 0;">
+  <span class="label">Certifications & Expertise</span>
+  
+  <div class="cert-container">
+    <div class="cert-group">
+      <h4>Infrastructure & Operations</h4>
+      <ul class="cert-list">
+        <li><i class="fas fa-university"></i>Uptime Institute ATS & AOS</li>
+        <li><i class="fas fa-building"></i>Certified DC Management Professional (CDCMP)</li>
+        <li><i class="fas fa-drafting-compass"></i>Certified DC Design Professional (CDCDP)</li>
+        <li><i class="fas fa-search"></i>Certified DC Audit Professional</li>
+      </ul>
+    </div>
+
+    <div class="cert-group">
+      <h4>Strategy & Methodology</h4>
+      <ul class="cert-list">
+        <li><i class="fas fa-cog"></i>ITIL® Foundation</li>
+        <li><i class="fas fa-chart-bar"></i>Certified Six Sigma Green Belt</li>
+        <li><i class="fas fa-sync"></i>Certified Scrum Product Owner (CSPO)</li>
+        <li><i class="fas fa-hands-helping"></i>Lean IT & Agile Foundations</li>
+      </ul>
+    </div>
+
+    <div class="cert-group">
+      <h4>Risk & Compliance</h4>
+      <ul class="cert-list">
+        <li><i class="fas fa-lock"></i>PCI-DSS</li>
+        <li><i class="fas fa-file-invoice"></i>SOC 1/2</li>
+        <li><i class="fas fa-clipboard-check"></i>SSAE 18/21</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <footer id="contact">
-  <span class="label">Connect</span>
+  <span class="label">Initiate Connection</span>
   <div class="contact-grid">
-    <a href="mailto:tiwsau@gmail.com" class="contact-item" title="Email"><i class="fas fa-envelope"></i><span>Email</span></a>
-    <a href="tel:+13039812914" class="contact-item" title="Call"><i class="fas fa-phone"></i><span>Call</span></a>
-    <a href="https://www.linkedin.com/in/stiwari9/" target="_blank" class="contact-item" title="LinkedIn"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+    <a href="mailto:tiwsau@gmail.com" class="contact-item"><i class="fas fa-envelope"></i><span>Email</span></a>
+    <a href="tel:+13039812914" class="contact-item"><i class="fas fa-phone"></i><span>Call</span></a>
+    <a href="https://www.linkedin.com/in/stiwari9/" target="_blank" class="contact-item"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
   </div>
   <div class="footer-location">AURORA, COLORADO | GLOBAL INFRASTRUCTURE EXECUTIVE</div>
 </footer>
