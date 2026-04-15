@@ -17,7 +17,7 @@
       --text-dim: #808080;
       --text-main: #ffffff;
       --gold: #d4af37;
-      --pill-bg: #1a160d; /* Warm dark gold for pills */
+      --pill-bg: #1a160d;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,10 +45,10 @@
     .section { padding: 10rem 6% 6rem; max-width: 1400px; margin: 0 auto; }
     .label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4em; color: var(--gold); margin-bottom: 1rem; display: block; }
 
-    /* TWO-COLUMN LAYOUT LIKE UPLOADED IMAGE */
+    /* TWO-COLUMN ABOUT SECTION */
     .about-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 6rem; align-items: start; }
-    .about-main h1 { font-family: 'Playfair Display', serif; font-size: 4rem; line-height: 1.1; margin-bottom: 2.5rem; border-left: 4px solid var(--gold); padding-left: 2rem; }
-    .about-main p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 2rem; font-weight: 300; }
+    .about-main h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 2.5rem; border-left: 4px solid var(--gold); padding-left: 2rem; }
+    .about-main p { font-size: 1.15rem; color: var(--text-dim); margin-bottom: 1.5rem; font-weight: 300; }
     .about-main strong { color: var(--text-main); font-weight: 500; }
 
     /* PILLS STYLE */
@@ -59,11 +59,13 @@
       color: #e0cc9b; 
       padding: 0.6rem 1.2rem; 
       border-radius: 50px; 
-      font-size: 0.85rem; 
-      font-weight: 500; 
+      font-size: 0.8rem; 
+      font-weight: 600; 
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* EDUCATION SIDEBAR STYLE */
+    /* EDUCATION SIDEBAR */
     .edu-sidebar h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-main); }
     .edu-item { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin-bottom: 2.5rem; }
     .edu-item h4 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--text-main); }
@@ -74,18 +76,19 @@
     .career-year { font-weight: 700; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.1em; }
     .career-body h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
     .career-body h4 { font-size: 0.9rem; color: var(--text-main); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
-    .career-body p { font-size: 1.05rem; color: var(--text-dim); margin-bottom: 1rem; max-width: 850px; }
+    .career-body p { font-size: 1.05rem; color: var(--text-dim); margin-bottom: 1.5rem; max-width: 850px; font-weight: 300; }
 
     /* FOOTER */
     footer { padding: 8rem 6%; background: var(--surface); border-top: 1px solid var(--border); text-align: center; }
     .contact-grid { display: flex; justify-content: center; gap: 4rem; margin: 3.5rem 0; }
     .contact-item { text-decoration: none; color: var(--text-dim); transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
     .contact-item i { font-size: 2.2rem; }
+    .contact-item span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; }
     .contact-item:hover { color: var(--gold); transform: translateY(-5px); }
+    .footer-location { color: var(--text-dim); letter-spacing: 0.15em; font-size: 0.75rem; opacity: 0.5; margin-top: 4rem; }
 
     @media (max-width: 1000px) {
       .about-container, .career-row { grid-template-columns: 1fr; gap: 4rem; }
-      .about-main h1 { font-size: 3rem; }
     }
   </style>
 </head>
@@ -103,7 +106,7 @@
 <section class="section" id="about">
   <div class="about-container">
     <div class="about-main">
-      <span class="label">About Me</span>
+      <span class="label">Executive Summary</span>
       <h1>Strategy Meets Execution</h1>
       
       <p>I am a results-driven IT and data center leader with over 15 years of global experience spanning North America, APAC, and EMEA. My work sits at the intersection of infrastructure strategy, governance, and operations—translating complex technical environments into scalable, audit-ready, and business-aligned systems.</p>
@@ -113,14 +116,12 @@
       <p>I believe great leadership means being equally fluent in a boardroom and a data center floor—and I've spent my career proving it.</p>
 
       <div class="pill-container">
-        <div class="skill-pill">IT Strategy & Governance</div>
-        <div class="skill-pill">Global DC Operations</div>
+        <div class="skill-pill">Portfolio Strategy</div>
+        <div class="skill-pill">Infrastructure Governance</div>
+        <div class="skill-pill">Global Operations</div>
         <div class="skill-pill">Audit & Compliance</div>
-        <div class="skill-pill">Program Management</div>
-        <div class="skill-pill">Vendor Negotiations</div>
-        <div class="skill-pill">Business Analytics</div>
-        <div class="skill-pill">Executive Reporting</div>
         <div class="skill-pill">Capacity Planning</div>
+        <div class="skill-pill">Vendor Management</div>
         <div class="skill-pill">Risk & Resiliency</div>
         <div class="skill-pill">Cross-Functional Leadership</div>
       </div>
@@ -138,7 +139,7 @@
       </div>
       <div class="edu-item">
         <h4>BS, Manufacturing Engineering</h4>
-        <p>Brigham Young University</p>
+        <p>Brigham Young University (Minor: Business Management)</p>
       </div>
 
       <h3 style="margin-top: 4rem;">Executive Education</h3>
@@ -158,15 +159,42 @@
   </div>
 </section>
 
-<section class="section" id="experience" style="padding-top: 4rem;">
-  <span class="label">Career Experience</span>
+<section class="section" id="experience" style="padding-top: 0;">
+  <span class="label">Professional Experience</span>
   
   <div class="career-row">
     <div class="career-year">2022 — PRESENT</div>
     <div class="career-body">
       <h3>Visa Inc.</h3>
       <h4>Director, Lead Business Planning – DCEO Business Operations</h4>
-      <p>Directs global data center portfolio strategy, commercial governance, and expansion planning. Shapes investment decisions and risk frameworks that improve execution discipline for Visa’s enterprise infrastructure.</p>
+      <p>Leads global data center portfolio strategy, commercial governance, and expansion planning. Shapes investment decisions and risk frameworks that improve execution discipline for enterprise infrastructure.</p>
+    </div>
+  </div>
+
+  <div class="career-row">
+    <div class="career-year">2021 — 2022</div>
+    <div class="career-body">
+      <h3>Visa Inc.</h3>
+      <h4>Director, India & Turkey – Data Center Delivery & Operations</h4>
+      <p>Directed Tier III+ data center operations across India and Turkey. Managed multi-site delivery with 100% SLA performance while scaling cross-regional engineering capability.</p>
+    </div>
+  </div>
+
+  <div class="career-row">
+    <div class="career-year">2018 — 2021</div>
+    <div class="career-body">
+      <h3>Visa Inc.</h3>
+      <h4>Data Center Manager – Singapore & Indonesia</h4>
+      <p>Managed mission-critical operations across regional facilities. Delivered new colocation capacity and optimized footprint, achieving significant cost rationalization during expansion phases.</p>
+    </div>
+  </div>
+
+  <div class="career-row">
+    <div class="career-year">2016 — 2018</div>
+    <div class="career-body">
+      <h3>Visa Inc.</h3>
+      <h4>Staff Systems Engineer – Operations & Infrastructure</h4>
+      <p>Standardized operating maturity across global data centers. Achieved 100% Uptime Institute M&O certification scores—a distinction held by fewer than 5% of centers globally.</p>
     </div>
   </div>
 
@@ -175,13 +203,13 @@
     <div class="career-body">
       <h3>Visa Inc.</h3>
       <h4>Business Process Engineer – US Data Centers</h4>
-      <p>Drove 15% operational efficiency gains through automated KPI analytics using Tableau, Splunk, and SAP. Led an audit of 5,000+ assets across mission-critical facilities, improving data accuracy to 90%+.</p>
+      <p>Drove 15% operational efficiency gains through automated KPI analytics using Tableau and Splunk. Led audit of 5,000+ assets, increasing data accuracy to 90%+.</p>
     </div>
   </div>
 </section>
 
 <footer id="contact">
-  <span class="label">Initiate Connection</span>
+  <span class="label">Connect</span>
   <div class="contact-grid">
     <a href="mailto:tiwsau@gmail.com" class="contact-item"><i class="fas fa-envelope"></i><span>Email</span></a>
     <a href="tel:+13039812914" class="contact-item"><i class="fas fa-phone"></i><span>Call</span></a>
